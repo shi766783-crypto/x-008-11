@@ -60,6 +60,23 @@ export function monthlySeries(months) {
   })
 }
 
+export function availableYears() {
+  const years = new Set([new Date().getFullYear()])
+  for (const t of loadTransactions()) {
+    const year = Number(String(t.date || '').slice(0, 4))
+    if (year) years.add(year)
+  }
+  return [...years].sort((a, b) => b - a)
+}
+
+export function yearlyOverview(year) {
+  const months = Array.from({ length: 12 }, (_, i) => `${year}-${String(i + 1).padStart(2, '0')}`)
+  const monthly = monthlySeries(months).map((m) => ({ ...m, balance: m.income - m.expense }))
+  const income = monthly.reduce((sum, m) => sum + m.income, 0)
+  const expense = monthly.reduce((sum, m) => sum + m.expense, 0)
+  return { year, monthly, income, expense, balance: income - expense }
+}
+
 export function savingsRate(income, expense) {
   if (!income || income <= 0) return 0
   return Math.round(((income - expense) / income) * 100)
