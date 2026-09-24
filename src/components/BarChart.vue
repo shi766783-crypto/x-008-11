@@ -3,7 +3,7 @@
     <div v-for="(item, index) in bars" :key="index" class="bar-group">
       <div class="bar-label">{{ item.label }}</div>
       <div class="bar-track">
-        <div class="bar-fill" :style="{ height: item.height + '%' }">
+        <div class="bar-fill" :style="{ height: item.height + '%', background: item.color || undefined }">
           <span v-if="showValue" class="bar-value">{{ item.value }}</span>
         </div>
       </div>

@@ -84,11 +84,14 @@ const pieData = computed(() => {
   return rows.map((r) => ({ ...r, percent: Math.round((r.amount / total) * 100) }))
 })
 
+const INCOME_BAR = 'linear-gradient(180deg, #4f8df9, #2f6fe4)'
+const EXPENSE_BAR = 'linear-gradient(180deg, #f9b86a, #ef8f2d)'
+
 const trendData = computed(() => {
   const months = monthListFrom(5)
   return report.monthlySeries(months).flatMap((m) => [
-    { label: `${Number(m.month.slice(5))}月`, value: m.income },
-    { label: '', value: m.expense }
+    { label: `${Number(m.month.slice(5))}月`, value: m.income, color: INCOME_BAR },
+    { label: '', value: m.expense, color: EXPENSE_BAR }
   ])
 })
 </script>

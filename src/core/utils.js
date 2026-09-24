@@ -36,6 +36,10 @@ export function monthListFrom(monthsBack) {
   return out
 }
 
+export function yearMonthList(year) {
+  return Array.from({ length: 12 }, (_, i) => `${year}-${String(i + 1).padStart(2, '0')}`)
+}
+
 export function money(value) {
   const n = Number(value) || 0
   return n.toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })

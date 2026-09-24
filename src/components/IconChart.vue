@@ -14,6 +14,7 @@ const props = defineProps({
 
 const paths = {
   home: 'M12 3l8 7v11h-6v-6h-4v6H4V10z',
+  calendar: 'M7 2v3H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2V2h-2v3H9V2zM5 9h14v10H5z',
   chart: 'M4 20V10h4v10zm6 0V4h4v16zm6 0v-7h4v7z',
   add: 'M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z',
   account: 'M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-4 0-8 2-8 6v1h16v-1c0-4-4-6-8-6z',
